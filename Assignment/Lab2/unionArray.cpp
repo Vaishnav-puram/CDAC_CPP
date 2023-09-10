@@ -29,7 +29,7 @@ int main(){
     int arr2[size2];
     // int size1=sizeof(arr1)/sizeof(arr1[0]); to retrieve the size of array
     // int size2=sizeof(arr2)/sizeof(arr2[0]);
-    cout<<"Enter array one datails :"<<endl;
+    cout<<"Enter array one details :"<<endl;
     for (int i = 0; i < size1; i++)
     {
         /* code */
