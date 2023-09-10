@@ -2,7 +2,8 @@
 using namespace std;
 void unionFind(int arr1[],int arr2[],int s1,int s2){
     int s=s1+s2;
-    int arr3[s];
+    int *arr3=nullptr;
+    arr3=new int[s];
     int i=0;
     for(;i<s1;i++){
         arr3[i]=arr1[i];
