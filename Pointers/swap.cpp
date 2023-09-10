@@ -12,7 +12,7 @@ int main(){
     int *bptr=&b;
     cout<<a<<" ";
     cout<<b<<" "<<endl;
-    swap(*aptr,*bptr);
+    swap(aptr,bptr);
     cout<<a<<" ";
     cout<<b<<" "<<endl;
 }
