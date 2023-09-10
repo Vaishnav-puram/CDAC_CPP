@@ -1,5 +1,5 @@
 #include<iostream>
-#include<vector>
+#include<list>
 using namespace std;
 class Employee{
     public:
@@ -21,10 +21,12 @@ class Employee{
             }
 };
 class Manager:public Employee{
-    double prefBonus;
     public:
-        double netSal(){
-            double net=basicSal+prefBonus;
+    double prefBonus;
+    double net;
+    
+        void netSal(){
+            net=basicSal+prefBonus;
         }
         Manager(){
 
@@ -38,17 +40,19 @@ class Manager:public Employee{
         }       
 };
 class Worker:public Employee{
+    public:
     int hrsWorked;
     double hrlyRate;
-    public:
+    double net;
+    
         void setHrlyRate(double rate){
             hrlyRate=rate;
         }
         double getHrlyRate(){
             return hrlyRate;
         }
-        double netSal(){
-            double net=basicSal+(hrsWorked*hrlyRate);
+        void netSal(){
+            net=basicSal+(hrsWorked*hrlyRate);
         }
         Worker(){
 
@@ -62,8 +66,8 @@ class Worker:public Employee{
         }
 };
 int main(){
-    vector<Manager> manager;
-    vector<Worker> worker;
+    list<Manager> manager;
+    list<Worker> worker;
     while (true) {
         cout << "Options:\n";
         cout << "1. Hire Manager\n";
@@ -94,7 +98,7 @@ int main(){
             cout<<"Enter preferable bonus : "<<endl;
             cin>>prefBonus;
             Manager m(id,name,deptId,basicSal,prefBonus);
-            netSal=m.netSal();
+            m.netSal();
             manager.push_back(m);
 
         }
@@ -120,17 +124,17 @@ int main(){
             cin>>hrlyRate;
             Worker w(id,name,deptId,basicSal,hrsWorked);
             w.setHrlyRate(hrlyRate);
-            netSal=w.netSal();
+            w.netSal();
             worker.push_back(w);
         }
         if(choice==3){
             cout<<"Managers net salary list : "<<endl;
-            for(Manager m:manager){
-                cout<<m.netSal();
+            for(auto it:manager){
+                cout<<it.net<<endl;
             }
             cout<<"Workers net salary list : "<<endl;
-            for(Worker w:worker){
-                cout<<w.netSal();
+            for(auto it:worker){
+                cout<<it.net<<endl;
             }
         }
     }
