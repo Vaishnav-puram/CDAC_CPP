@@ -1,5 +1,6 @@
 #include<iostream>
 #include<list>
+#include<typeinfo>
 using namespace std;
 class Employee{
     protected:
@@ -8,7 +9,7 @@ class Employee{
         int deptId;
         double basicSal;
         public:
-            double netSal(){
+            virtual double netSal(){
                 return 0.0;
             }
             Employee(){
@@ -69,8 +70,6 @@ class Worker:public Employee{
 };
 int main(){
     Employee* bptr[50];
-    Manager m;
-    Worker w;
     int index=0;
     // list<Manager> manager;
     // list<Worker> worker;
@@ -104,9 +103,12 @@ int main(){
             cin>>basicSal;
             cout<<"Enter preferable bonus : "<<endl;
             cin>>prefBonus;
-            Manager m(id,name,deptId,basicSal,prefBonus);
-            m.netSal();
-            bptr[index++]=&m;
+            // Manager m(id,name,deptId,basicSal,prefBonus);
+            // m.netSal();
+            // bptr[index++]=&m;
+            Manager* m=new Manager(id,name,deptId,basicSal,prefBonus);
+            m->netSal();
+            bptr[index++]=m;
 
         }
         if(choice==2){
@@ -129,23 +131,36 @@ int main(){
             cin>>hrsWorked;
             cout<<"Enter hourly rate : "<<endl;
             cin>>hrlyRate;
-            Worker w(id,name,deptId,basicSal,hrsWorked);
-            w.setHrlyRate(hrlyRate);
-            w.netSal();
-            bptr[index++]=&w;
+            // Worker w(id,name,deptId,basicSal,hrsWorked);
+            // w.setHrlyRate(hrlyRate);
+            // w.netSal();
+            // bptr[index++]=&w;
+            Worker* w=new Worker(id,name,deptId,basicSal,hrsWorked);
+            w->setHrlyRate(hrlyRate);
+            w->netSal();
+            bptr[index++]=w;
         }
         if(choice==3){
             cout<<"Managers net salary list : "<<endl;
-            for(auto it:bptr){
-                int sal=it->netSal();
+            for(int i=0;i<index;i++){
+                if(typeid(*bptr[i])==typeid(Manager)){
+                    Manager* m1=dynamic_cast<Manager*>(bptr[i]); //down casting
+                double sal=m1->netSal();
                 cout<<sal<<endl;
+                }
             }
             cout<<"Workers net salary list : "<<endl;
-            for(auto it:bptr){
-                int sal=it->netSal();
+            for(int i=0;i<index;i++){
+                if(typeid(*bptr[i])==typeid(Worker)){
+                    Worker* w1=dynamic_cast<Worker*>(bptr[i]); //down casting
+                double sal=w1->netSal();
                 cout<<sal<<endl;
+                }
             }
         }
+    }
+    for (int i = 0; i < index; i++) {
+        delete bptr[i];
     }
     return 0;
 }
