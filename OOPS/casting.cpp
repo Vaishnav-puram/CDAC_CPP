@@ -61,14 +61,15 @@ class SUV:public Car{
 void displayCars(Car *c){
     cout<<"\n----------------------------"<<endl;
     c->display();
+    c->speed();
     if(typeid(*c)==typeid(Sedan)){
         Sedan* s=dynamic_cast<Sedan*>(c);
         s->specialFeatures();
-        s->speed();
+       // s->speed();
     }else if(typeid(*c)==typeid(SUV)){
         SUV* suv=dynamic_cast<SUV*>(c);
         suv->speacialFeatures();
-        suv->speed();
+        //suv->speed();
     }
 }
 int main(){

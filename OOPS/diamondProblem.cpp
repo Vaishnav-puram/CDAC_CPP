@@ -10,7 +10,7 @@ class A{
         }
 
 };
-class B:virtual A{ //will create only single copy of base class
+class B:virtual A{ //will create only single copy of base class , so creating virtual base class
     public:
         B(){
             cout<<"B constructor"<<endl;
@@ -20,7 +20,7 @@ class B:virtual A{ //will create only single copy of base class
         }
 
 };
-class C:virtual A{ //will create only single copy of base class
+class C:virtual A{ //will create only single copy of base class , so creating virtual base class
     public:
         C(){
             cout<<"C constructor"<<endl;
