@@ -43,7 +43,7 @@ int main(){
     int choice;
     Employee e,e2;
     ofstream outputfile;
-    fstream inputfile;
+    ifstream inputfile;
     int empno;
     double salary;
     string name;
