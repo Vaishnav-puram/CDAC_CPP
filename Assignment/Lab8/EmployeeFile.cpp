@@ -34,16 +34,16 @@ class Employee{
         }
         void display(){
             cout<<"---------------------------"<<endl;
-                cout<<"Emp no : "<<this->getEmpno()<<endl;
-                cout<<"Emp name : "<<this->getName()<<endl;
-                cout<<"Emp sal : "<<this->getSal()<<endl;
+                cout<<"Emp no : "<<empno<<endl;
+                cout<<"Emp name : "<<name<<endl;
+                cout<<"Emp sal : "<<sal<<endl;
         }
 };
 int main(){
     int choice;
     Employee e,e2;
     ofstream outputfile;
-    ifstream inputfile;
+    fstream inputfile;
     int empno;
     double salary;
     string name;
@@ -56,7 +56,7 @@ int main(){
         switch (choice)
         {
         case 1:
-        outputfile.open("employee.dat", ios::app|ios::out|ios::binary);
+        outputfile.open("employee.dat", ios::app|ios::binary);
             /* code */
             cout<<"Enter emp no. : "<<endl;
             cin>>empno;
@@ -75,13 +75,13 @@ int main(){
                 break;
             }
             
-            outputfile.write((char*)&e,sizeof(Employee));
+            outputfile.write((char*)&e,sizeof(e));
             cout<<"Employee details stored !"<<endl;
             outputfile.close();
             break;
         case 2:
-        inputfile.open("employee.dat",ios::app|ios::in|ios::binary);
-            
+        inputfile.open("employee.dat",ios::in|ios::binary);
+        
             if (!inputfile.is_open())
             {
                 cout<<"Error ! no data found !!!"<<endl;
@@ -90,9 +90,12 @@ int main(){
             
             cout<<"Student details : "<<endl;
 
-            while (inputfile.read((char*)&e2, sizeof(Employee))) {
-                    e2.display();
-            }
+         while (inputfile.read((char*)&e, sizeof(e))&&!inputfile.eof())
+         {
+            /* code */
+            
+            e.display();
+         }
              inputfile.close();
             break;
         case 3:
