@@ -13,7 +13,13 @@ int amstrong(int x){
     //cout<<count<<endl;
     while(temp2!=0){
         int last=temp2%10;
-        int digit=pow(last,count);
+       // cout<<"Last : "<<last<<endl;
+        int digit=1;
+        for(int i=0;i<count;i++){
+            digit*=last;
+        }
+        //int digit=(int)pow(last,count);
+       // cout<<"digit : "<<digit<<endl;
         res+=digit;
         temp2=temp2/10;
     }
@@ -28,7 +34,7 @@ int main(){
     cin>>n;
     int y=amstrong(n);
     if(n==y){
-        cout<<"Amstring number";
+        cout<<"Amstrong number";
     }else{
         cout<<"Not an Amstrong number";
     }
