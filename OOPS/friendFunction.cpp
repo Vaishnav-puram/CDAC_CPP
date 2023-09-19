@@ -11,6 +11,7 @@ class EquiTriangle{
             circumference=a*3;
             area=(1.73*a*a)/4;
         }
+        //friend functions are not mutual and is not inherited
         friend void access(EquiTriangle);
 
 };
