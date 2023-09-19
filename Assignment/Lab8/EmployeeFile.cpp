@@ -41,7 +41,7 @@ class Employee{
 };
 int main(){
     int choice;
-    Employee e,e2;
+    Employee e;
     ofstream outputfile;
     ifstream inputfile;
     int empno;
