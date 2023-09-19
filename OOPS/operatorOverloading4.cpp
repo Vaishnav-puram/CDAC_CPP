@@ -30,19 +30,30 @@ class Complex{
 Complex operator++(Complex &c){
     int real=c.getReal();
     int img=c.getImaginary();
-    real+=1;
-    img+=1;
+    ++real;
+    ++img;
+    c.setReal(real);
+    c.setImaginary(img);
+    return c;
+    
+}
+Complex operator++(Complex &c,int){
+    int real=c.getReal();
+    int img=c.getImaginary();
+    real++;
+    img++;
     c.setReal(real);
     c.setImaginary(img);
     return c;
     
 }
 
-
 int main(){
     Complex c(3,5);
     c.display();
     Complex c1=++c;
     c1.display();
+    Complex c2=c++;
+    c2.display();
 
 }
