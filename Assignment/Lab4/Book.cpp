@@ -1,4 +1,5 @@
 #include<iostream>
+#include<cstring>
 using namespace std;
 class Book{
     string bname,author;
@@ -38,15 +39,16 @@ class Book{
             return id;
         }
         void display(){
-            cout<<"Book Id : "<<id<<endl;
-            cout<<"Book name : "<<bname<<endl;
-            cout<<"Author name : "<<author<<endl;
-            cout<<"Price : "<<price<<endl;
+            cout<<"Book Id : "<<this->getId()<<endl;
+            cout<<"Book name : "<<this->getBName()<<endl;
+            cout<<"Author name : "<<this->getAuthor()<<endl;
+            cout<<"Price : "<<this->getPrice()<<endl;
         }
 };
 int main(){
     int choice;
     string author,bname;
+    Book b1;
     int price;
     do{
         cout<<"----------Options-----------"<<endl;
@@ -56,7 +58,6 @@ int main(){
         cout<<"4.Exit"<<endl;
         cin>>choice;
         int id=1;
-        Book b1;
         switch (choice)
         {
         case 1:

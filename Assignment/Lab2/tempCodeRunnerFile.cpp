@@ -1,15 +1,17 @@
-int m;
-    // cout<<"Enter number till you want prime nos :"<<endl;
-    // cin>>m;
-    // for(int i=2;i<m;i++){
-    //     bool f=false;
-    //     for(int j=2;j<i;j++){
-    //         if(i%j==0){
-    //             f=true;
-    //             break;
-    //         }
-    //     }
-    //     if(!f){
-    //         cout<<i<<" ";
-    //     }
-    // }
+#include<iostream>
+using namespace std;
+int main(){
+    int sum=0;
+    int n;
+    while(n>0){
+        cout<<"Enter number:";
+        cin>>n;
+        if(n<0){
+            break;
+        }
+        sum+=n;
+        cout<<"sum is : "<<sum<<endl;
+    }
+    cout<<"Total sum : "<<sum;
+    return 0;
+}

@@ -11,34 +11,34 @@ int main(){
     switch (val)
     {
     case 1:
-        printf("One");
+        cout<<"One";
         break;
     case 2:
-        printf("Two");
+        cout<<"Two";
         break;
     case 3:
-        printf("Three");
+        cout<<"Three";
         break;
     case 4:
-        printf("Four");
+        cout<<"Four";
         break;
     case 5:
-        printf("Five");
+        cout<<"Five";
         break;
     case 6:
-        printf("Six");
+        cout<<"Six";
         break;
     case 7:
-        printf("Seven");
+        cout<<"Seven";
         break;
     case 8:
-        printf("Eight");
+        cout<<"Eight";
         break;            
     case 9:
-        printf("Nine");
+        cout<<"Nine";
         break;
     case 0:
-        printf("Zero");
+        cout<<"Zero";
         break;
     }
     return 0;

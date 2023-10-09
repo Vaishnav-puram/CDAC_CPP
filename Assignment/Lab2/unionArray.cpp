@@ -26,8 +26,8 @@ int main(){
     cin>>size1;
     cout<<"Enter size of array two :"<<endl;
     cin>>size2;
-    int *arr1 = nullptr;
-    int *arr2 = nullptr;
+    int *arr1 ;
+    int *arr2 ;
     arr1=new int[size1];
     arr2=new int[size2];
     // int size1=sizeof(arr1)/sizeof(arr1[0]); to retrieve the size of array

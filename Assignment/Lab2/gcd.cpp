@@ -7,6 +7,9 @@ int gcd(int a,int b){
     return gcd(b,a%b);
 }
 int main(){
-    int res=gcd(2,6);
-    cout<<res<<endl;
+    int a,b;
+    cout<<"Enter two numbers :"<<endl;
+    cin>>a>>b;
+    int res=gcd(a,b);
+    cout<<"GCD of "<<a<<" and "<<b <<" is " <<res<<endl;
 }

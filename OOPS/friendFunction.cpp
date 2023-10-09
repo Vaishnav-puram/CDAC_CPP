@@ -12,10 +12,10 @@ class EquiTriangle{
             area=(1.73*a*a)/4;
         }
         //friend functions are not mutual and is not inherited
-        friend void access(EquiTriangle);
+        friend void access(EquiTriangle &e);
 
 };
-void access(EquiTriangle e){
+void access(EquiTriangle &e){
     cout<<e.circumference<<endl;
     cout<<e.area<<endl;
 }

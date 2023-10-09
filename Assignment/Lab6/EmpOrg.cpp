@@ -33,11 +33,7 @@ class Manager:public Employee{
         Manager(){
 
         }
-        Manager(int id,string name,int deptId,double basicSal,double prefBonus){
-            this->id=id;
-            this->name=name;
-            this->deptId=deptId;
-            this->basicSal=basicSal;
+        Manager(int id,string name,int deptId,double basicSal,double prefBonus):Employee(id,name,deptId,basicSal){
             this->prefBonus=prefBonus;
         }       
 };
@@ -59,17 +55,17 @@ class Worker:public Employee{
         Worker(){
 
         }
-        Worker(int id,string name,int deptId,double basicSal,int hrsWorked){
-            this->id=id;
-            this->name=name;
-            this->deptId=deptId;
-            this->basicSal=basicSal;
+        Worker(int id,string name,int deptId,double basicSal,int hrsWorked):Employee(id,name,deptId,basicSal){
             this->hrsWorked=hrsWorked;
         }
 };
 int main(){
     list<Manager> manager;
     list<Worker> worker;
+    int id;
+            string name;
+            int deptId;
+            double basicSal;
     while (true) {
         cout << "Options:\n";
         cout << "1. Hire Manager\n";
@@ -83,10 +79,7 @@ int main(){
             break;
         }
         if(choice==1){
-            int id;
-            string name;
-            int deptId;
-            double basicSal;
+            
             double prefBonus;
             double netSal;
             cout<<"Enter id : "<<endl;
@@ -105,10 +98,6 @@ int main(){
 
         }
         if(choice==2){
-            int id;
-            string name;
-            int deptId;
-            double basicSal;
             int hrsWorked;
             double hrlyRate;
             double netSal;
